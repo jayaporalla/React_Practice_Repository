@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import IncrementDecrementCounter from "./IncrementDecrementCounter";
+import SubmitForm from "./submitForm";
+import BrandSearch from "./brandsSearch";
+import AddToCart from './addToCart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <div>
       <App />
+      <IncrementDecrementCounter />
+      <SubmitForm />
+      <BrandSearch />
+      <AddToCart />
     </div>
   </React.StrictMode>
 );
