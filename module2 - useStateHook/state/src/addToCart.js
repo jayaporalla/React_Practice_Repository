@@ -1,11 +1,11 @@
 import { useState } from "react"
 
 const allBrands = [
-    { id: "1", name: "puma"},
-    { id: "2", name: "adidas"},
-    { id: "3", name: "nike"},
-    { id: "4", name: "file"},
-    { id: "5", name: "reebok"},
+    { id: "1", name: "puma", count: 0},
+    { id: "2", name: "adidas", count: 0},
+    { id: "3", name: "nike", count: 0},
+    { id: "4", name: "file", count: 0},
+    { id: "5", name: "reebok", count: 0},
 ]
 
 function AddToCart(){
@@ -14,12 +14,24 @@ function AddToCart(){
 
     const AddItemsToCart = (id) => {
         const filteredBrands = allBrands.find((item) => item.id === id);
-        setSelectedBrand([...selectedBrand, filteredBrands]);
+        setSelectedBrand(brand => {
+            const existingItem = brand.find(item => item.id === id);
+            if(existingItem){
+                return brand.map(item => item.id === id ? {...item, count: item.count + 1} : item);
+            }
+            return [...brand, {...filteredBrands, count: 1}];
+        });
     }
 
     const RemoveFromCart = (id) => {
-        const removeItems = selectedBrand.filter((brna) => brna.id !== id);
-        setSelectedBrand(removeItems);
+        setSelectedBrand(brand => {
+            const item = brand.find(item => item.id === id);
+            if(!item) return brand;
+            if(item.count > 1){
+                return brand.map(item => item.id === id ? {...item, count: item.count - 1} : item);
+            }
+            return brand.filter(item => item.id !== id);
+        });
     }
 
     return (
@@ -33,7 +45,7 @@ function AddToCart(){
             <div>
                 <h2>The selected items are:</h2>
                 {
-                    selectedBrand.map((item) => <p>{item.name} <button onClick={() => RemoveFromCart(item.id)}>Remove from cart</button></p>)
+                    selectedBrand.map((item) => <p>{item.name} - {item.count} <button onClick={() => RemoveFromCart(item.id)}>Remove from cart</button> </p>)
                 }
             </div>
         </>

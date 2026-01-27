@@ -9,7 +9,7 @@ const allBrands = [
 ]
 
 function BrandSearch() {
-
+    //avoid using multiple useState use when it is required.
     const [ brands, setBrands ] = useState(allBrands);
 
     const onSearchChange = (e) => {

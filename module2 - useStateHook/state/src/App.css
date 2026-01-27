@@ -1,0 +1,21 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+    background-color: rgba(51, 161, 41, 0.656);
+}
+.list{
+    flex-direction: column;
+}
+.strike-through{
+    text-decoration: line-through;
+}
+.text{
+    font-size: 15px;
+}
+.add{
+    background-color: red;
+    font-size: 15px;
+}

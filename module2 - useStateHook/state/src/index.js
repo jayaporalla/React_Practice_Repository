@@ -7,6 +7,7 @@ import IncrementDecrementCounter from "./IncrementDecrementCounter";
 import SubmitForm from "./submitForm";
 import BrandSearch from "./brandsSearch";
 import AddToCart from './addToCart';
+import Wishlist from './wishlist';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,9 @@ root.render(
       <SubmitForm />
       <BrandSearch />
       <AddToCart />
+    </div>
+    <div>
+      <Wishlist />
     </div>
   </React.StrictMode>
 );
