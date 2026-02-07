@@ -10,7 +10,7 @@ import { PrivateRouter } from './pages/component/PrivateRouter';
 function App() {
   const getStyle = ({isActive}) => {
     return {
-      color:isActive ? "red" : ""
+      color: isActive ? "red" : ""
     }
   }
 
