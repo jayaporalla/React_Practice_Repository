@@ -9,7 +9,7 @@ function App() {
   return (
       <>
       <div>
-        <input type='text' placeholder='Enter your name' onChange={(e) => setText(e.target.value)}/>
+        <input type='text' placeholder='Enter your name...' onChange={(e) => setText(e.target.value)}/>
       </div>
       <div>
         Hello - {text}
